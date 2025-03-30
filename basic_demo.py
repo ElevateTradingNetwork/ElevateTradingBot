@@ -35,42 +35,15 @@ else:
     bitget_available = False
 
 # Check for package availability
-pandas_available = False
 try:
-    # Try importing each package separately to diagnose what's missing
-    try:
-        import pandas as pd
-        print("pandas is available ✓")
-        pandas_found = True
-    except ImportError:
-        print("pandas is not available ✗")
-        pandas_found = False
-        
-    try:
-        import numpy as np
-        print("numpy is available ✓")
-        numpy_found = True
-    except ImportError:
-        print("numpy is not available ✗")
-        numpy_found = False
-        
-    try:
-        import ccxt
-        print("ccxt is available ✓")
-        ccxt_found = True
-    except ImportError:
-        print("ccxt is not available ✗")
-        ccxt_found = False
-        
-    # All required packages are available
-    pandas_available = pandas_found and numpy_found and ccxt_found
-    if pandas_available:
-        print("All required packages are available ✓")
-    else:
-        print("Some required packages are missing ✗")
-except Exception as e:
-    print(f"Error checking packages: {e}")
+    import pandas as pd
+    import numpy as np
+    import ccxt
+    pandas_available = True
+    print("Required packages are available ✓")
+except ImportError:
     pandas_available = False
+    print("Required packages are not available ✗")
 
 print("\nThis is a basic demo of the Crypto Trading Bot.")
 print("The full application would include:")
