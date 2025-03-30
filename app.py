@@ -348,6 +348,55 @@ def interactive_menu():
     
     data = generate_mock_data(selected_symbol)
     
+    # When running in a workflow, just display the menu without waiting for input
+    # This prevents the "EOF when reading a line" error in Replit workflows
+    is_workflow = os.environ.get('REPL_SLUG') is not None and not sys.stdin.isatty()
+    
+    if is_workflow:
+        os.system('clear' if os.name != 'nt' else 'cls')
+        print_colored("██████╗ ██╗████████╗ ██████╗ ███████╗████████╗", "cyan")
+        print_colored("██╔══██╗██║╚══██╔══╝██╔════╝ ██╔════╝╚══██╔══╝", "cyan")
+        print_colored("██████╔╝██║   ██║   ██║  ███╗█████╗     ██║   ", "cyan")
+        print_colored("██╔══██╗██║   ██║   ██║   ██║██╔══╝     ██║   ", "cyan")
+        print_colored("██████╔╝██║   ██║   ╚██████╔╝███████╗   ██║   ", "cyan")
+        print_colored("╚═════╝ ╚═╝   ╚═╝    ╚═════╝ ╚══════╝   ╚═╝   ", "cyan")
+        print_colored("CRYPTO TRADING BOT - INTERACTIVE MODE", "bold")
+        print("\n")
+        
+        # Check API status
+        api_status = check_api_status()
+        
+        print_colored("API CONFIGURATION:", "blue")
+        if api_status["openai"]:
+            print_colored("OpenAI API: Connected ✓", "green")
+        else:
+            print_colored("OpenAI API: Not Connected ✗", "red")
+            
+        if api_status["bitget"]:
+            print_colored("Bitget API: Connected ✓", "green")
+        else:
+            print_colored("Bitget API: Not Connected ✗", "red")
+        
+        print("\n")
+        
+        print(f"Currently Selected: {selected_symbol} - {selected_timeframe}")
+        print("\nMAIN MENU")
+        print("1. Dashboard")
+        print("2. Pattern Analysis")
+        print("3. AI Trading Assistant")
+        print("4. Change Trading Pair")
+        print("5. Change Timeframe")
+        print("6. Refresh Data")
+        print("7. Exit")
+        
+        print("\nThis is a display-only view when running as a workflow.")
+        print("To interact with the menu, please run the app directly in a terminal.")
+        # Sleep indefinitely to keep the workflow running
+        while True:
+            time.sleep(60)
+        return
+        
+    # Interactive mode when running in a terminal
     while True:
         os.system('clear' if os.name != 'nt' else 'cls')
         print_colored("██████╗ ██╗████████╗ ██████╗ ███████╗████████╗", "cyan")
@@ -385,20 +434,36 @@ def interactive_menu():
         print("6. Refresh Data")
         print("7. Exit")
         
-        choice = input("\nEnter your choice (1-7): ")
+        try:
+            choice = input("\nEnter your choice (1-7): ")
+        except EOFError:
+            print("\nDetected non-interactive environment. Exiting menu.")
+            break
         
         if choice == "1":
             # Dashboard
             show_dashboard(data, selected_symbol, selected_timeframe)
-            input("\nPress Enter to return to menu...")
+            try:
+                input("\nPress Enter to return to menu...")
+            except EOFError:
+                print("\nDetected non-interactive environment. Returning to menu.")
+                time.sleep(2)
         elif choice == "2":
             # Pattern Analysis
             show_pattern_analysis(data)
-            input("\nPress Enter to return to menu...")
+            try:
+                input("\nPress Enter to return to menu...")
+            except EOFError:
+                print("\nDetected non-interactive environment. Returning to menu.")
+                time.sleep(2)
         elif choice == "3":
             # AI Trading Assistant
             show_ai_assistant()
-            input("\nPress Enter to return to menu...")
+            try:
+                input("\nPress Enter to return to menu...")
+            except EOFError:
+                print("\nDetected non-interactive environment. Returning to menu.")
+                time.sleep(2)
         elif choice == "4":
             # Change Trading Pair
             os.system('clear' if os.name != 'nt' else 'cls')
@@ -406,17 +471,21 @@ def interactive_menu():
             for i, symbol in enumerate(symbols):
                 print(f"{i+1}. {symbol}")
             
-            symbol_choice = input("\nSelect trading pair (1-3): ")
             try:
-                idx = int(symbol_choice) - 1
-                if 0 <= idx < len(symbols):
-                    selected_symbol = symbols[idx]
-                    data = generate_mock_data(selected_symbol)
-                    print(f"\nSwitch to {selected_symbol} successful!")
+                symbol_choice = input("\nSelect trading pair (1-3): ")
+                try:
+                    idx = int(symbol_choice) - 1
+                    if 0 <= idx < len(symbols):
+                        selected_symbol = symbols[idx]
+                        data = generate_mock_data(selected_symbol)
+                        print(f"\nSwitch to {selected_symbol} successful!")
+                        time.sleep(1)
+                except ValueError:
+                    print("\nInvalid choice. Please try again.")
                     time.sleep(1)
-            except ValueError:
-                print("\nInvalid choice. Please try again.")
-                time.sleep(1)
+            except EOFError:
+                print("\nDetected non-interactive environment. Returning to menu.")
+                time.sleep(2)
         elif choice == "5":
             # Change Timeframe
             os.system('clear' if os.name != 'nt' else 'cls')
@@ -424,16 +493,20 @@ def interactive_menu():
             for i, tf in enumerate(timeframes):
                 print(f"{i+1}. {tf}")
             
-            tf_choice = input("\nSelect timeframe (1-6): ")
             try:
-                idx = int(tf_choice) - 1
-                if 0 <= idx < len(timeframes):
-                    selected_timeframe = timeframes[idx]
-                    print(f"\nSwitch to {selected_timeframe} timeframe successful!")
+                tf_choice = input("\nSelect timeframe (1-6): ")
+                try:
+                    idx = int(tf_choice) - 1
+                    if 0 <= idx < len(timeframes):
+                        selected_timeframe = timeframes[idx]
+                        print(f"\nSwitch to {selected_timeframe} timeframe successful!")
+                        time.sleep(1)
+                except ValueError:
+                    print("\nInvalid choice. Please try again.")
                     time.sleep(1)
-            except ValueError:
-                print("\nInvalid choice. Please try again.")
-                time.sleep(1)
+            except EOFError:
+                print("\nDetected non-interactive environment. Returning to menu.")
+                time.sleep(2)
         elif choice == "6":
             # Refresh data
             print("\nRefreshing market data...")
