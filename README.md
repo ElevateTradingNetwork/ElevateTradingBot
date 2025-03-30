@@ -36,11 +36,13 @@ The bot connects to the Bitget exchange API to fetch real-time data, identify tr
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.11+
 - API keys for Bitget exchange
 - OpenAI API key (for AI-powered trading assistance)
 
 ### Dependencies
+
+The project uses Poetry for dependency management. All dependencies are defined in the `pyproject.toml` file:
 
 - pandas
 - numpy
@@ -49,31 +51,68 @@ The bot connects to the Bitget exchange API to fetch real-time data, identify tr
 - streamlit (for web interface)
 - plotly (for interactive charts)
 - pandas-ta (for technical indicators)
+- joblib (for data persistence)
 
 ## Getting Started
 
 1. Clone the repository
-2. Set up environment variables for API keys:
+
+2. Set up environment variables by creating a `.env` file:
    ```
-   export BITGET_API_KEY="your_api_key"
-   export BITGET_API_SECRET="your_api_secret"
-   export BITGET_API_PASSWORD="your_api_password"
-   export OPENAI_API_KEY="your_openai_key"
+   # Copy the example file
+   cp .env.example .env
+   
+   # Edit with your actual API keys
+   nano .env
+   ```
+   
+   Your `.env` file should contain:
+   ```
+   BITGET_API_KEY=your_api_key
+   BITGET_API_SECRET=your_api_secret
+   BITGET_API_PASSWORD=your_api_password
+   OPENAI_API_KEY=your_openai_key
    ```
 
-3. Install dependencies:
+3. Install dependencies using Poetry:
    ```
-   pip install pandas numpy ccxt openai streamlit plotly pandas-ta
+   # Install Poetry if you don't have it
+   curl -sSL https://install.python-poetry.org | python3 -
+
+   # Install dependencies
+   poetry install
+   ```
+   
+   Or install the dependencies directly:
+   ```
+   pip install streamlit pandas numpy plotly ccxt pandas-ta joblib openai
    ```
 
 4. Run the basic demo:
    ```
+   # Using Poetry
+   poetry run demo
+   
+   # Or directly
    python basic_demo.py
    ```
 
-5. Or run the full application:
+5. Run the dashboard preview:
    ```
-   streamlit run app.py
+   # Using Poetry
+   poetry run dashboard
+   
+   # Or directly
+   python show_dashboard.py
+   ```
+
+6. Run the full Streamlit application:
+   ```
+   # Using Poetry
+   poetry run streamlit run app.py --server.port 5000
+   
+   # Or directly
+   streamlit run app.py --server.port 5000
    ```
 
 ## Trading Strategies
@@ -92,6 +131,40 @@ The bot incorporates position sizing based on account risk percentage, with defa
 - 1% risk per trade
 - Maximum of 3 concurrent open trades
 - Risk:reward ratios from 1:2 to 1:5 depending on pattern strength
+
+## Development
+
+### Development with Poetry
+
+This project uses Poetry for dependency management and packaging. Here are some useful commands for development:
+
+```bash
+# Activate the virtual environment
+poetry shell
+
+# Add a new dependency
+poetry add package_name
+
+# Add a development dependency
+poetry add --group dev package_name
+
+# Update dependencies
+poetry update
+
+# Run a script in the virtual environment without activating it
+poetry run python script.py
+
+# Build the package
+poetry build
+```
+
+### Project Scripts
+
+The project has the following configured scripts:
+
+- `poetry run demo` - Run the basic demo (basic_demo.py)
+- `poetry run dashboard` - Run the dashboard preview (show_dashboard.py)
+- `poetry run trading-bot` - Run the interactive app (app.py)
 
 ## Disclaimer
 
