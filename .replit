@@ -21,7 +21,15 @@ args = "Crypto Trading Bot"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Terminal Preview"
+args = "Dashboard Preview"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Streamlit App"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Interactive App"
 
 [[workflows.workflow]]
 name = "Crypto Trading Bot"
@@ -38,7 +46,7 @@ task = "shell.exec"
 args = "python basic_demo.py"
 
 [[workflows.workflow]]
-name = "Terminal Preview"
+name = "Dashboard Preview"
 author = "agent"
 
 [workflows.workflow.metadata]
@@ -49,4 +57,33 @@ task = "packager.installForAll"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python run_preview.py"
+args = "python show_dashboard.py"
+
+[[workflows.workflow]]
+name = "Streamlit App"
+author = "agent"
+
+[workflows.workflow.metadata]
+agentRequireRestartOnSave = false
+
+[[workflows.workflow.tasks]]
+task = "packager.installForAll"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "streamlit run app.py --server.port 5000"
+waitForPort = 5000
+
+[[workflows.workflow]]
+name = "Interactive App"
+author = "agent"
+
+[workflows.workflow.metadata]
+agentRequireRestartOnSave = false
+
+[[workflows.workflow.tasks]]
+task = "packager.installForAll"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python app.py"
