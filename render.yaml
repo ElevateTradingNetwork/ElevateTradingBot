@@ -17,4 +17,6 @@ services:
       - key: OPENAI_API_KEY
         sync: false
     region: oregon
+    healthCheckPath: /
+    autoDeploy: true
 version: "1"
