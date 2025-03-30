@@ -166,6 +166,50 @@ The project has the following configured scripts:
 - `poetry run dashboard` - Run the dashboard preview (show_dashboard.py)
 - `poetry run trading-bot` - Run the interactive app (app.py)
 
+## Deployment on Render
+
+This project is configured for easy deployment on Render. Follow these steps:
+
+1. **Sign up for a Render account** at [render.com](https://render.com) if you don't already have one.
+
+2. **Fork or push this repository** to your GitHub, GitLab, or Bitbucket account.
+
+3. **Create a new Web Service** on Render:
+   - Click "New" and select "Web Service"
+   - Connect your repository
+   - Name your service (e.g., "crypto-trading-bot")
+   - Select the "Python 3" runtime environment
+   - Leave the build command as `pip install -r requirements.txt`
+   - Set the start command to: `streamlit run app_streamlit.py --server.port $PORT --server.address 0.0.0.0`
+
+4. **Set up environment variables**:
+   - In the Render dashboard, go to your web service
+   - Navigate to "Environment" tab
+   - Add the following environment variables:
+     - `BITGET_API_KEY` - Your Bitget API key
+     - `BITGET_API_SECRET` - Your Bitget API secret
+     - `BITGET_API_PASSWORD` - Your Bitget API password
+     - `OPENAI_API_KEY` - Your OpenAI API key
+
+5. **Deploy the service**:
+   - Click "Create Web Service"
+   - Render will build and deploy your application
+
+Alternatively, if you have the Render CLI installed, you can deploy using the included render.yaml file:
+
+```bash
+render deploy
+```
+
+### Render Features
+
+When using Render for deployment, you get these benefits:
+- Automatic HTTPS/TLS certificate
+- Global CDN for faster loading
+- Continuous deployment from GitHub/GitLab
+- Automatic scaling
+- Real-time logs and metrics
+
 ## Disclaimer
 
 Trading cryptocurrencies carries significant risk. This trading bot is provided for educational and research purposes only. Always test thoroughly in a demo environment before using with real funds. Past performance is not indicative of future results.

@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: crypto-trading-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app_streamlit.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: true
+      - key: BITGET_API_KEY
+        sync: false
+      - key: BITGET_API_SECRET
+        sync: false
+      - key: BITGET_API_PASSWORD
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
