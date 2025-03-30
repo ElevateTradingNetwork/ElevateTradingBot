@@ -3,6 +3,9 @@ import random
 import datetime
 from datetime import timedelta
 
+# Import environment variable loader
+from utils.env_loader import loaded_env_vars
+
 def print_colored(text, color, end="\n"):
     """Print colored text in the terminal."""
     color_codes = {
@@ -20,6 +23,7 @@ def print_colored(text, color, end="\n"):
 
 def check_api_status():
     """Check status of API keys."""
+    # Get API keys from environment variables (loaded via env_loader)
     openai_api_key = os.environ.get("OPENAI_API_KEY", "")
     bitget_api_key = os.environ.get("BITGET_API_KEY", "")
     bitget_api_secret = os.environ.get("BITGET_API_SECRET", "")
@@ -28,6 +32,20 @@ def check_api_status():
     api_status = {}
     api_status["openai"] = bool(openai_api_key)
     api_status["bitget"] = bool(bitget_api_key and bitget_api_secret and bitget_api_password)
+    
+    # Print API status details for debugging
+    if os.environ.get("DEBUG"):
+        if not api_status["openai"]:
+            print("Missing OpenAI API key in environment variables")
+        if not api_status["bitget"]:
+            missing = []
+            if not bitget_api_key:
+                missing.append("BITGET_API_KEY")
+            if not bitget_api_secret:
+                missing.append("BITGET_API_SECRET")
+            if not bitget_api_password:
+                missing.append("BITGET_API_PASSWORD")
+            print(f"Missing Bitget API credentials: {', '.join(missing)}")
     
     return api_status
 
