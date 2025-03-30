@@ -1,0 +1,15 @@
+[project]
+name = "crypto-trading-bot"
+version = "0.1.0"
+description = "Cryptocurrency trading bot using break, retest, and liquidity sweep strategies"
+requires-python = ">=3.11"
+dependencies = [
+    "streamlit",
+    "pandas",
+    "numpy",
+    "plotly",
+    "ccxt",
+    "pandas-ta",
+    "joblib",
+    "openai",
+]
