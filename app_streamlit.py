@@ -244,7 +244,7 @@ pattern_descriptions = {
 def main():
     # Sidebar
     st.sidebar.title("Crypto Trading Bot")
-    st.sidebar.image("https://img.icons8.com/fluency/96/000000/stock-exchange.png", width=80)
+    st.sidebar.image("static/images/stock-exchange.svg", width=80)
     
     api_status = check_api_status()
     
@@ -411,11 +411,11 @@ def show_pattern_analysis(data, selected_symbol, selected_timeframe):
     
     with pattern_tabs[0]:
         st.markdown(pattern_descriptions["Break and Retest"])
-        st.image("https://a.c-dn.net/c/content/dam/publicsites/igcom/uk/images/ContentImage/How-to-trade-breakouts.png", caption="Break and Retest Pattern Illustration")
+        st.image("static/images/break-retest.svg", caption="Break and Retest Pattern Illustration")
     
     with pattern_tabs[1]:
         st.markdown(pattern_descriptions["Liquidity Sweep"])
-        st.image("https://forextraininggroup.com/wp-content/uploads/2016/11/Liquidity-Sweep-Trade-Example.png", caption="Liquidity Sweep Pattern Illustration")
+        st.image("static/images/liquidity-sweep.svg", caption="Liquidity Sweep Pattern Illustration")
     
     with pattern_tabs[2]:
         col1, col2 = st.columns(2)
@@ -435,7 +435,7 @@ def show_pattern_analysis(data, selected_symbol, selected_timeframe):
         - **Engulfing Pattern**: A two-candle pattern where the second candle completely engulfs the first, signaling a potential reversal.
         - **Doji**: A candle with a small body, indicating indecision in the market.
         """)
-        st.image("https://school.stockcharts.com/lib/exe/fetch.php?media=chart_analysis:candlestick_reversal_patterns.png", caption="Common Candlestick Patterns")
+        st.image("static/images/candlestick-patterns.svg", caption="Common Candlestick Patterns")
     
     st.markdown("---")
     

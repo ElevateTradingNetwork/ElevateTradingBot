@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" fill="none">
+  <rect width="800" height="400" fill="#F9F9F9"/>
+  
+  <!-- Horizontal lines -->
+  <line x1="50" y1="50" x2="750" y2="50" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="50" y1="100" x2="750" y2="100" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="50" y1="150" x2="750" y2="150" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="50" y1="200" x2="750" y2="200" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="50" y1="250" x2="750" y2="250" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="50" y1="300" x2="750" y2="300" stroke="#EEEEEE" stroke-width="1"/>
+  <line x1="50" y1="350" x2="750" y2="350" stroke="#EEEEEE" stroke-width="1"/>
+  
+  <!-- Section 1: Hammer Pattern -->
+  <text x="120" y="30" font-family="Arial" font-size="14" font-weight="bold" fill="#333333">Hammer</text>
+  
+  <!-- Downtrend before hammer -->
+  <path d="M70 150L90 180L110 200L130 230" stroke="#666666" stroke-width="1.5"/>
+  
+  <!-- Hammer candle -->
+  <line x1="130" y1="230" x2="130" y2="320" stroke="#22AA22" stroke-width="1.5"/> <!-- Wick -->
+  <rect x="125" y="230" width="10" height="20" fill="#22AA22" stroke="#22AA22"/> <!-- Body -->
+  
+  <!-- Uptrend after hammer -->
+  <path d="M130 230L150 210L170 180L190 160" stroke="#666666" stroke-width="1.5"/>
+  
+  <text x="115" y="340" font-family="Arial" font-size="12" fill="#333333">Bullish Reversal</text>
+  
+  <!-- Section 2: Evening Star Pattern -->
+  <text x="290" y="30" font-family="Arial" font-size="14" font-weight="bold" fill="#333333">Evening Star</text>
+  
+  <!-- Uptrend before evening star -->
+  <path d="M230 250L250 220L270 180L290 150" stroke="#666666" stroke-width="1.5"/>
+  
+  <!-- Evening Star candles -->
+  <rect x="285" y="150" width="10" height="30" fill="#22AA22" stroke="#22AA22"/> <!-- First candle (bullish) -->
+  <line x1="290" y1="150" x2="290" y2="130" stroke="#22AA22" stroke-width="1.5"/> <!-- Wick -->
+  
+  <rect x="305" y="155" width="10" height="10" fill="#FFFFFF" stroke="#666666"/> <!-- Second candle (doji) -->
+  <line x1="310" y1="155" x2="310" y2="140" stroke="#666666" stroke-width="1.5"/> <!-- Wick up -->
+  <line x1="310" y1="165" x2="310" y2="175" stroke="#666666" stroke-width="1.5"/> <!-- Wick down -->
+  
+  <rect x="325" y="180" width="10" height="30" fill="#FF3333" stroke="#FF3333"/> <!-- Third candle (bearish) -->
+  <line x1="330" y1="210" x2="330" y2="225" stroke="#FF3333" stroke-width="1.5"/> <!-- Wick -->
+  
+  <!-- Downtrend after evening star -->
+  <path d="M330 210L350 240L370 260L390 280" stroke="#666666" stroke-width="1.5"/>
+  
+  <text x="280" y="340" font-family="Arial" font-size="12" fill="#333333">Bearish Reversal</text>
+  
+  <!-- Section 3: Engulfing Pattern -->
+  <text x="475" y="30" font-family="Arial" font-size="14" font-weight="bold" fill="#333333">Bullish Engulfing</text>
+  
+  <!-- Downtrend before engulfing -->
+  <path d="M430 150L450 180L470 220" stroke="#666666" stroke-width="1.5"/>
+  
+  <!-- Engulfing candles -->
+  <rect x="465" y="220" width="10" height="20" fill="#FF3333" stroke="#FF3333"/> <!-- First candle (bearish) -->
+  <line x1="470" y1="220" x2="470" y2="210" stroke="#FF3333" stroke-width="1.5"/> <!-- Wick up -->
+  <line x1="470" y1="240" x2="470" y2="250" stroke="#FF3333" stroke-width="1.5"/> <!-- Wick down -->
+  
+  <rect x="480" y="210" width="15" height="45" fill="#22AA22" stroke="#22AA22"/> <!-- Second candle (bullish engulfing) -->
+  <line x1="487.5" y1="210" x2="487.5" y2="200" stroke="#22AA22" stroke-width="1.5"/> <!-- Wick up -->
+  <line x1="487.5" y1="255" x2="487.5" y2="265" stroke="#22AA22" stroke-width="1.5"/> <!-- Wick down -->
+  
+  <!-- Uptrend after engulfing -->
+  <path d="M487.5 210L510 180L530 160L550 140" stroke="#666666" stroke-width="1.5"/>
+  
+  <text x="465" y="340" font-family="Arial" font-size="12" fill="#333333">Bullish Reversal</text>
+  
+  <!-- Section 4: Doji Pattern -->
+  <text x="655" y="30" font-family="Arial" font-size="14" font-weight="bold" fill="#333333">Doji</text>
+  
+  <!-- Uptrend before doji -->
+  <path d="M600 250L620 220L640 180" stroke="#666666" stroke-width="1.5"/>
+  
+  <!-- Doji candle -->
+  <rect x="635" y="179" width="10" height="2" fill="#FFFFFF" stroke="#666666"/> <!-- Body (very small) -->
+  <line x1="640" y1="140" x2="640" y2="179" stroke="#666666" stroke-width="1.5"/> <!-- Wick up -->
+  <line x1="640" y1="181" x2="640" y2="220" stroke="#666666" stroke-width="1.5"/> <!-- Wick down -->
+  
+  <!-- Possible directions after doji -->
+  <path d="M640 180L660 150" stroke="#666666" stroke-width="1.5" stroke-dasharray="4 4"/> <!-- Continue up -->
+  <path d="M640 180L660 210" stroke="#666666" stroke-width="1.5" stroke-dasharray="4 4"/> <!-- Reverse down -->
+  
+  <text x="625" y="340" font-family="Arial" font-size="12" fill="#333333">Indecision</text>
+  
+  <text x="50" y="380" font-family="Arial" font-size="12" fill="#666666">Time</text>
+  <text x="20" y="30" font-family="Arial" font-size="12" fill="#666666">Price</text>
+</svg>

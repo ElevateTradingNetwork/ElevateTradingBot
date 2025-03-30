@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" fill="none">
+  <rect width="800" height="400" fill="#F9F9F9"/>
+  <path d="M50 200L150 240L250 220L350 250L450 230L550 240L650 150L750 200" stroke="#333333" stroke-width="2"/>
+  <line x1="100" y1="50" x2="100" y2="350" stroke="#DDDDDD" stroke-width="1" stroke-dasharray="5 5"/>
+  <line x1="200" y1="50" x2="200" y2="350" stroke="#DDDDDD" stroke-width="1" stroke-dasharray="5 5"/>
+  <line x1="300" y1="50" x2="300" y2="350" stroke="#DDDDDD" stroke-width="1" stroke-dasharray="5 5"/>
+  <line x1="400" y1="50" x2="400" y2="350" stroke="#DDDDDD" stroke-width="1" stroke-dasharray="5 5"/>
+  <line x1="500" y1="50" x2="500" y2="350" stroke="#DDDDDD" stroke-width="1" stroke-dasharray="5 5"/>
+  <line x1="600" y1="50" x2="600" y2="350" stroke="#DDDDDD" stroke-width="1" stroke-dasharray="5 5"/>
+  <line x1="700" y1="50" x2="700" y2="350" stroke="#DDDDDD" stroke-width="1" stroke-dasharray="5 5"/>
+  
+  <!-- Support line -->
+  <line x1="50" y1="270" x2="600" y2="270" stroke="#22AA22" stroke-width="2" stroke-dasharray="5 5"/>
+  <text x="60" y="285" font-family="Arial" font-size="12" fill="#22AA22">Support Level</text>
+  
+  <!-- Liquidity sweep -->
+  <path d="M600 240L625 320L650 150" stroke="#FF3333" stroke-width="3"/>
+  <circle cx="625" cy="320" r="5" fill="#FF3333"/>
+  <text x="610" y="335" font-family="Arial" font-size="12" fill="#FF3333">Liquidity Sweep</text>
+  
+  <!-- Stop losses -->
+  <path d="M610 280L625 275" stroke="#666666" stroke-width="1" stroke-dasharray="3 3"/>
+  <path d="M620 290L625 285" stroke="#666666" stroke-width="1" stroke-dasharray="3 3"/>
+  <path d="M630 285L625 280" stroke="#666666" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="570" y="300" font-family="Arial" font-size="10" fill="#666666">Stop Losses</text>
+  
+  <!-- Arrows -->
+  <path d="M650 120L680 120" stroke="#3366CC" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="685" y="125" font-family="Arial" font-size="12" fill="#3366CC">Long Entry</text>
+  
+  <path d="M550 290L580 290" stroke="#FF6633" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="585" y="295" font-family="Arial" font-size="12" fill="#FF6633">Stop Loss Orders</text>
+  
+  <!-- Markers -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3366CC"/>
+    </marker>
+  </defs>
+  
+  <text x="50" y="380" font-family="Arial" font-size="12" fill="#666666">Time</text>
+  <text x="20" y="30" font-family="Arial" font-size="12" fill="#666666">Price</text>
+  
+  <!-- Volume indicators -->
+  <rect x="600" y="350" width="50" height="30" fill="#FF3333" fill-opacity="0.3"/>
+  <text x="605" y="370" font-family="Arial" font-size="10" fill="#333333">High Volume</text>
+</svg>

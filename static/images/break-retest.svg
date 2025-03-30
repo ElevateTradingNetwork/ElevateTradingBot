@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" fill="none">
+  <rect width="800" height="400" fill="#F9F9F9"/>
+  <path d="M50 350L300 250L400 300L500 100L750 200" stroke="#333333" stroke-width="2"/>
+  <path d="M400 300L500 250L550 280L750 200" stroke="#3366CC" stroke-width="2" stroke-dasharray="5 5"/>
+  <path d="M500 100L500 250" stroke="#FF6633" stroke-width="2" stroke-dasharray="5 5"/>
+  <circle cx="500" cy="100" r="6" fill="#FF6633"/>
+  <circle cx="500" cy="250" r="6" fill="#FF6633"/>
+  <rect x="485" y="150" width="120" height="30" fill="#FFFFFF" stroke="#333333"/>
+  <text x="500" y="170" font-family="Arial" font-size="12" fill="#333333">Resistance Break</text>
+  <rect x="485" y="260" width="120" height="30" fill="#FFFFFF" stroke="#333333"/>
+  <text x="515" y="280" font-family="Arial" font-size="12" fill="#333333">Retest</text>
+  <path d="M550 280L620 230L700 270" stroke="#3366CC" stroke-width="2"/>
+  <path d="M750 30L750 370" stroke="#CCCCCC" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="755" y="200" font-family="Arial" font-size="12" fill="#333333">Current Price</text>
+  <text x="50" y="380" font-family="Arial" font-size="12" fill="#666666">Time</text>
+  <text x="20" y="30" font-family="Arial" font-size="12" fill="#666666">Price</text>
+  <path d="M450 310L550 310" stroke="#22AA22" stroke-width="2"/>
+  <text x="450" y="325" font-family="Arial" font-size="12" fill="#22AA22">Entry Zone</text>
+  <path d="M450 340L550 340" stroke="#CC2222" stroke-width="2"/>
+  <text x="450" y="355" font-family="Arial" font-size="12" fill="#CC2222">Stop Loss Zone</text>
+</svg>
