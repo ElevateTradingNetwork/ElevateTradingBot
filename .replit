@@ -19,6 +19,10 @@ author = "agent"
 task = "workflow.run"
 args = "Crypto Trading Bot"
 
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Terminal Preview"
+
 [[workflows.workflow]]
 name = "Crypto Trading Bot"
 author = "agent"
@@ -32,3 +36,17 @@ task = "packager.installForAll"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "python basic_demo.py"
+
+[[workflows.workflow]]
+name = "Terminal Preview"
+author = "agent"
+
+[workflows.workflow.metadata]
+agentRequireRestartOnSave = false
+
+[[workflows.workflow.tasks]]
+task = "packager.installForAll"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python run_preview.py"
