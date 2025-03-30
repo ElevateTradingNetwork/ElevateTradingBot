@@ -109,9 +109,12 @@ def generate_mock_data():
         exit_price = price_data[exit_idx]["close"]
         profit = round((exit_price - entry_price) / entry_price * 100, 2)
         
+        # Randomly select between BTC/USDT and WIF/USDT for demo trades
+        symbols = ["BTC/USDT", "ETH/USDT", "WIF/USDT"]
+        
         trade = {
             "id": i + 1,
-            "symbol": "BTC/USDT",
+            "symbol": symbols[i % len(symbols)],
             "entry_date": price_data[entry_idx]["date"],
             "exit_date": price_data[exit_idx]["date"],
             "entry_price": entry_price,
@@ -289,8 +292,11 @@ def main():
     # Generate mock data
     data = generate_mock_data()
     
-    # Show the dashboard
-    show_dashboard(data, "BTC/USDT", "1h")
+    # Show the dashboard with different trading pair options
+    if random.random() > 0.5:
+        show_dashboard(data, "BTC/USDT", "1h")
+    else:
+        show_dashboard(data, "WIF/USDT", "1h")
     
     # Show pattern analysis
     show_pattern_analysis(data)

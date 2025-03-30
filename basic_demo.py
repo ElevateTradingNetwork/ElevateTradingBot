@@ -56,7 +56,7 @@ if bitget_available:
     print("installed, the trading bot would connect to Bitget and:")
     
     print("\n1. Fetch market data from these example markets:")
-    markets = ["BTC/USDT", "ETH/USDT", "SOL/USDT", "BNB/USDT", "XRP/USDT"]
+    markets = ["BTC/USDT", "ETH/USDT", "SOL/USDT", "BNB/USDT", "XRP/USDT", "WIF/USDT"]
     for market in markets:
         print(f"   - {market}")
     
