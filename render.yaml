@@ -8,6 +8,8 @@ services:
     envVars:
       - key: PYTHONUNBUFFERED
         value: true
+      - key: NON_INTERACTIVE
+        value: true
       - key: BITGET_API_KEY
         sync: false
       - key: BITGET_API_SECRET

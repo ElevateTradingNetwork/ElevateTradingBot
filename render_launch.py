@@ -4,6 +4,10 @@ import subprocess
 
 def main():
     """Launch Streamlit app with the correct port for Render."""
+    # Set environment variable to indicate a non-interactive environment
+    os.environ["NON_INTERACTIVE"] = "true"
+    
+    # Get port from environment or use default
     port = os.environ.get("PORT", "5000")
     print(f"Starting Streamlit app on port {port}")
     
