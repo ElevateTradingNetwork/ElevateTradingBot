@@ -11,16 +11,15 @@ def main():
     port = os.environ.get("PORT", "5000")
     print(f"Starting Streamlit app on port {port}")
     
-    # Build the command with the environment's PORT
+    # Build the command with the specified port
     cmd = [
         "streamlit", "run", 
         "app_streamlit.py", 
         f"--server.port={port}", 
-        "--server.address=0.0.0.0",
-        "--server.headless=true"
+        "--server.address=0.0.0.0"
     ]
     
-    # Execute the command
+    # Execute the command directly (not in background)
     process = subprocess.run(cmd)
     return process.returncode
 
